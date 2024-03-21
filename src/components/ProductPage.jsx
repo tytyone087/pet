@@ -9,9 +9,13 @@ const ProductPage = () => {
     const [product, setProduct]=useState(null);
 
     useEffect(()=>{
-        axios.get(`https://507ca2e4-874f-469f-a390-29f60d9b214c.mock.pstmn.io/products/${id}`)
-        .then((result)=>{setProduct(result.data)})
-        .catch((error)=>{console.error(error)})
+        axios.get(`http://localhost:8080/products/${id}`)
+        .then(function(result){
+            setProduct(result.data.product)
+        })
+        
+        .catch(function(error){
+            console.error(error)})
     },[])
     console.log(product)
     if(product===null){
