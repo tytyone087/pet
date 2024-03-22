@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { LuDog } from "react-icons/lu";
+import { API_URL } from '../config/constants';
 
 const ProductPage = () => {
     const {id}= useParams();
@@ -9,7 +10,7 @@ const ProductPage = () => {
     const [product, setProduct]=useState(null);
 
     useEffect(()=>{
-        axios.get(`http://localhost:8080/products/${id}`)
+        axios.get(`${API_URL}/products/${id}`)
         .then(function(result){
             setProduct(result.data.product)
         })
