@@ -23,8 +23,13 @@ const UploadPage = () => {
         imageUrl:imageUrl,
      }).then((result)=>{
         console.log(result)
+        history('/',{replace:true})
+     }).catch((error)=>{
+      console.error(error);
+      message.error(`에러가 발생했습니다. ${error.message}`)
      })
       };
+      
    const onChangeImage = (info) => {
       if(info.file.status==="uploading"){
          return;

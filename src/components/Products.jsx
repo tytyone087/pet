@@ -33,6 +33,7 @@ const Products = () => {
                 products.map((product, idx)=>{
                     return(
                         <div className="product-card" key={idx}>
+                            {product.soldout ===1 ? <div className="product-blur"></div> : null}
                             <Link className='product-link' to={`/productpage/${product.id}`}>
                                 <div>
                                     <img src={`${API_URL}/${product.imageUrl}`} alt={product.name} />
